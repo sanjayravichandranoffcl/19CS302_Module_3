@@ -1,53 +1,57 @@
-# EX 11 C Program to convert a given decimal value to binary using function without arguments with return type.
+# EX 12 C program to check whether the given number is prime or not using function without return type and with arguments.
 
 ## DATE:
 08.06.2026
 
 ## AIM:
-To write a C Program to convert a given decimal value to binary using function without arguments with return type.
+To write a C program to check whether the given number is prime or not using function without return type and with arguments.
 
 ## Algorithm
 
 1. Start the program.
-2. Declare a function to convert decimal to binary.
-3. Get the decimal number from the user.
-4. Convert the decimal number into binary form.
-5. Return the binary value from the function.
-6. Display the binary value.
-7. Stop the program.
+2. Declare a function to check prime number.
+3. Get the number from the user.
+4. Pass the number to the function.
+5. Check whether the number is divisible by any number other than 1 and itself.
+6. If divisible, display Not Prime.
+7. Otherwise, display Prime.
+8. Stop the program.
 
 ## Program:
 
 ```c
 #include <stdio.h>
 
-int n;
-
-long int binary()
+void prime(int n)
 {
-    int rem;
-    long int bin = 0, place = 1;
+    int i, flag = 0;
 
-    while(n > 0)
+    for(i = 2; i < n; i++)
     {
-        rem = n % 2;
-        bin = bin + (rem * place);
-        place = place * 10;
-        n = n / 2;
+        if(n % i == 0)
+        {
+            flag = 1;
+            break;
+        }
     }
 
-    return bin;
+    if(flag == 0)
+    {
+        printf("Prime");
+    }
+    else
+    {
+        printf("Not Prime");
+    }
 }
 
 int main()
 {
-    long int result;
+    int n;
 
     scanf("%d", &n);
 
-    result = binary();
-
-    printf("%ld", result);
+    prime(n);
 
     return 0;
 }
@@ -56,9 +60,9 @@ int main()
 ## Output:
 
 ```text
-10
+7
 
-1010
+Prime
 ```
 
 ## Result:
